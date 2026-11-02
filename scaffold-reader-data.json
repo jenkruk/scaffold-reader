@@ -1,0 +1,230 @@
+{
+  "passage": {
+    "id": "psg-water-cycle",
+    "title": "The Water Cycle",
+    "grade": 6,
+    "text": "Water is always moving. When the sun heats a lake or an ocean, some of the water at the surface turns into water vapor and rises into the air. This process is called evaporation. As the vapor climbs higher, the air around it gets colder, and the vapor changes back into tiny droplets of liquid. This is condensation, and it is how clouds form.\n\nInside a cloud, droplets bump into each other and join together. When they become heavy enough, they fall as precipitation: rain, snow, sleet, or hail, depending on the temperature. Some of the water soaks into the ground, where plants can use it. The rest flows over the land into streams and rivers, and eventually the water returns to the lake or the ocean where it started.\n\nScientists call this the water cycle. It has no beginning and no end, and the same water has been moving through it for billions of years."
+  },
+  "students": [
+    {
+      "id": "st-1",
+      "name": "Amara",
+      "home_language": "Spanish",
+      "level": 2
+    },
+    {
+      "id": "st-2",
+      "name": "Diego",
+      "home_language": "Español",
+      "level": "Expanding"
+    },
+    {
+      "id": "st-3",
+      "name": "Linh",
+      "home_language": "Vietnamese",
+      "level": 3
+    },
+    {
+      "id": "st-4",
+      "name": "Jonah",
+      "home_language": "English",
+      "level": 6
+    }
+  ],
+  "scaffolds": [
+    {
+      "id": "s-01",
+      "type": "glossary",
+      "anchor": {
+        "start": 166,
+        "end": 177
+      },
+      "content": {
+        "term": "evaporation",
+        "definition": "When liquid water turns into a gas (vapor) and rises into the air."
+      },
+      "level_range": [
+        1,
+        4
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "s-02",
+      "type": "glossary",
+      "anchor": {
+        "quote": "condensation"
+      },
+      "content": {
+        "term": "condensation",
+        "definition": "When water vapor cools and turns back into liquid drops."
+      },
+      "level_range": [
+        1,
+        4
+      ],
+      "confidence": 0.94
+    },
+    {
+      "id": "s-03",
+      "type": "glossary",
+      "anchor": {
+        "start": 454,
+        "end": 467
+      },
+      "content": {
+        "term": "precipitation",
+        "definition": "Water that falls from clouds, like rain or snow."
+      },
+      "level_range": [
+        1,
+        4
+      ],
+      "confidence": 0.96
+    },
+    {
+      "id": "s-04",
+      "type": "glossary",
+      "anchor": {
+        "start": 107,
+        "end": 118
+      },
+      "content": {
+        "term": "water vapor",
+        "definition": "Water in the form of a gas. You cannot see it."
+      },
+      "level_range": [
+        1,
+        3
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "s-05",
+      "type": "translation",
+      "anchor": {
+        "start": 113,
+        "end": 118
+      },
+      "language": "es",
+      "content": {
+        "text": "vapor"
+      },
+      "level_range": [
+        1,
+        2
+      ],
+      "confidence": 0.88
+    },
+    {
+      "id": "s-06",
+      "type": "translation",
+      "anchor": {
+        "quote": "soaks into the ground"
+      },
+      "language": "es-MX",
+      "content": {
+        "text": "se filtra en la tierra"
+      },
+      "level_range": [
+        1,
+        2
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "s-07",
+      "type": "translation",
+      "anchor": {
+        "quote": "heavy enough"
+      },
+      "language": "vi",
+      "content": {
+        "text": "đủ nặng"
+      },
+      "level_range": [
+        1,
+        3
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "s-08",
+      "type": "simplify",
+      "anchor": {
+        "quote": "depending on the temperature"
+      },
+      "content": {
+        "text": "if it is warm or cold outside"
+      },
+      "level_range": [
+        1,
+        2
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "s-08",
+      "type": "glossary",
+      "anchor": {
+        "quote": "sleet"
+      },
+      "content": {
+        "term": "sleet",
+        "definition": "Frozen rain. Small bits of ice that fall from the sky."
+      },
+      "level_range": [
+        1,
+        4
+      ],
+      "confidence": 0.93
+    },
+    {
+      "id": "s-10",
+      "type": "translation",
+      "anchor": {
+        "quote": "clouds form"
+      },
+      "language": "vi",
+      "content": {
+        "text": "mây hình thành"
+      },
+      "level_range": [
+        1,
+        3
+      ],
+      "confidence": 0.84
+    },
+    {
+      "id": "s-11",
+      "type": "simplify",
+      "anchor": {
+        "quote": "turns into water vapor and rises into the air"
+      },
+      "content": {
+        "text": "becomes a gas and goes up"
+      },
+      "level_range": [
+        1,
+        2
+      ],
+      "confidence": 0.31
+    },
+    {
+      "id": "s-12",
+      "type": "glossary",
+      "anchor": {
+        "quote": "the water cycle"
+      },
+      "content": {
+        "term": "water cycle",
+        "definition": "The way water moves from the ground to the sky and back again, over and over."
+      },
+      "level_range": [
+        1,
+        5
+      ],
+      "confidence": 0.95
+    }
+  ]
+}
