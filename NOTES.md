@@ -1,29 +1,36 @@
 # Data problems found
 
-- **Mixed proficiency formats:** numeric levels and labels such as `"Expanding"` are normalized to the WIDA 1–6 scale. Unknown values are not guessed.
-- **Inconsistent languages:** student language names are normalized to base codes so values like `"Spanish"` and `es-MX` can be matched appropriately.
-- **Mixed anchors:** offset-based and quoted-text anchors are normalized to one `{ start, end, text }` shape. Quotes must match exactly once.
-- **Duplicate IDs:** both `s-08` records are kept, with deterministic internal keys so the source data is not altered.
-- **Overlapping anchors:** `"water vapor"` and `"vapor"` are merged into one trigger while preserving both supports.
-- **Low confidence:** `s-11` (`0.31`) remains in normalized data but is hidden below an exercise-specific `0.5` display threshold.
+- **The proficiency levels weren't consistent.** Some students had numbers while Diego had `"Expanding"`. I mapped the named level to the WIDA scale so all four students could be evaluated the same way. If I couldn't confidently map a value, I chose not to guess.
+- **Languages weren't represented consistently either.** Students had values like `"Spanish"` and `"Español"`, while scaffolds used `es` and `es-MX`. I normalized the student values to base language codes. Since the student data doesn't include locale, I decided an `es` student should still see an `es-MX` scaffold rather than lose useful support because of specificity the student record doesn't provide.
+- **Anchors came in two formats.** Some used offsets and others quoted text. I normalized both into the same shape. For quotes, I require exactly one match because silently choosing the first occurrence felt riskier than rejecting an ambiguous scaffold.
+- **`s-08` is duplicated.** I didn't want to alter the source data or throw either scaffold away, so I kept the original ID and added the array position to create a unique internal key.
+- **`"water vapor"` and `"vapor"` overlap.** I didn't want students to see nested or competing controls inside a sentence. I combine eligible overlapping supports into one trigger, but keep each support tied to the phrase it originally described.
+- **`s-11` has much lower confidence than everything else.** I chose `0.5` as a cutoff for this exercise and don't show lower-confidence support to a student. I would want to validate that threshold with educators and product stakeholders before using it in a real product.
 
-I kept `"vapor"` → `"vapor"` because identical wording can still be a valid translation.
+I kept `"vapor"` → `"vapor"`. It initially looks redundant, but the word is valid in both languages and confirming that meaning can still be useful.
 
 # Why your scaffolds look and behave the way they do
 
-The passage stays primary, so scaffolds are subtle inline buttons and help appears only when requested. Click, tap, Enter, or Space opens a contextual card near the phrase; it flips above when needed and keeps overlapping supports together.
+My main goal was to keep the student reading.
 
-The interaction is non-modal. Escape, the close button, or clicking outside dismisses help, keyboard focus returns to the phrase, translations include `lang`, and state is never communicated by color alone. The student selector is a native radio group styled as tabs.
+I wanted the help to feel available without competing with the passage, so the scaffolds are quiet inline controls rather than badges, icons, or permanently visible definitions. A student chooses when they need support, and the help stays next to the phrase they were reading.
 
-# What you'd do next with more time
+I also kept the interaction consistent across mouse, keyboard, and touch. Help opens intentionally rather than on hover, overlapping supports stay together, and the card is non-modal so opening a definition never takes over the reading experience.
 
-- Validate assumptions such as the confidence threshold with educators.
-- Expand real-device and screen-reader testing.
-- Add runtime schema validation for external/API data.
-- Consider an internal view for diagnostics and confidence scores.
+The visual design is intentionally restrained to avoid distraction and keep the student's focus on the text.
 
-# How you used AI tools
+# What I'd do next with more time
 
-I used ChatGPT and Claude Code to inspect the data, challenge architecture and UX decisions, accelerate implementation and tests, and review accessibility and responsive behavior. I reviewed the output throughout and changed direction when suggestions did not fit the product goal.
+I would validate the confidence threshold and scaffold behavior with educators and students rather than treating my assumptions as product requirements. I would also broaden real-device and assistive-technology testing and add runtime schema validation if this data were coming from an API.
+
+I'd also be interested in whether teachers need visibility into rejected or low-confidence scaffolds. That information seemed more useful as an internal or educator-facing tool than something a student should have to interpret.
+
+# How I used AI tools
+
+I used ChatGPT and Claude Code throughout the exercise. Claude Code helped me move quickly through implementation and testing, while I used ChatGPT heavily as a second opinion on architecture, UX, accessibility, and tradeoffs.
+
+I didn't always take the suggestions. The mobile scaffold interaction is a good example: I tried an in-flow treatment, then a bottom tray, and rejected both because they either interrupted the sentence or separated the help too far from the phrase. I ultimately went back to a contextual popover and refined its responsive positioning.
+
+In retrospect, I relied too much on AI to help polish the written explanation of the work. The decisions were mine, but the notes didn't communicate enough of the reasoning behind them. I would handle that differently next time.
 
 Approximate implementation time: 2 hours 40 minutes.
